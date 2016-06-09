@@ -2,8 +2,8 @@
  * Created by Sandeep on 01/06/14.
  */
 
-angular.module('movieApp.services',[]).factory('Movie',function($resource){
-    return $resource('http://movieapp-13434.onmodulus.net/api/movies/:id',{id:'@_id'},{
+angular.module('personApp.services',[]).factory('Person',function($resource){
+    return $resource('https://xtern-roster.herokuapp.com/people/:id',{id:'@id'},{
         update: {
             method: 'PUT'
         }

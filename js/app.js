@@ -2,26 +2,26 @@
  * Created by Sandeep on 01/06/14.
  */
 
-angular.module('movieApp',['ui.router','ngResource','movieApp.controllers','movieApp.services']);
+angular.module('personApp',['ui.router','ngResource','personApp.controllers','personApp.services']);
 
-angular.module('movieApp').config(function($stateProvider,$httpProvider){
-    $stateProvider.state('movies',{
-        url:'/movies',
-        templateUrl:'partials/movies.html',
-        controller:'MovieListController'
-    }).state('viewMovie',{
-       url:'/movies/:id/view',
-       templateUrl:'partials/movie-view.html',
-       controller:'MovieViewController'
-    }).state('newMovie',{
-        url:'/movies/new',
-        templateUrl:'partials/movie-add.html',
-        controller:'MovieCreateController'
-    }).state('editMovie',{
-        url:'/movies/:id/edit',
-        templateUrl:'partials/movie-edit.html',
-        controller:'MovieEditController'
+angular.module('personApp').config(function($stateProvider,$httpProvider){
+    $stateProvider.state('people',{
+        url:'/people',
+        templateUrl:'partials/people.html',
+        controller:'PersonListController'
+    }).state('viewPerson',{
+       url:'/people/:id/view',
+       templateUrl:'partials/person-view.html',
+       controller:'PersonViewController'
+    }).state('newPerson',{
+        url:'/people/new',
+        templateUrl:'partials/person-add.html',
+        controller:'PersonCreateController'
+    }).state('editPerson',{
+        url:'/people/:id/edit',
+        templateUrl:'partials/person-edit.html',
+        controller:'PersonEditController'
     });
 }).run(function($state){
-   $state.go('movies');
+   $state.go('people');
 });

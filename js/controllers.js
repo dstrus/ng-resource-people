@@ -1,43 +1,43 @@
 /**
  * Created by Sandeep on 01/06/14.
  */
-angular.module('movieApp.controllers',[]).controller('MovieListController',function($scope,$state,popupService,$window,Movie){
+angular.module('personApp.controllers',[]).controller('PersonListController',function($scope,$state,popupService,$window,Person){
 
-    $scope.movies=Movie.query();
+    $scope.people=Person.query();
 
-    $scope.deleteMovie=function(movie){
+    $scope.deletePerson=function(person){
         if(popupService.showPopup('Really delete this?')){
-            movie.$delete(function(){
+            person.$delete(function(){
                 $window.location.href='';
             });
         }
     }
 
-}).controller('MovieViewController',function($scope,$stateParams,Movie){
+}).controller('PersonViewController',function($scope,$stateParams,Person){
 
-    $scope.movie=Movie.get({id:$stateParams.id});
+    $scope.person=Person.get({id:$stateParams.id});
 
-}).controller('MovieCreateController',function($scope,$state,$stateParams,Movie){
+}).controller('PersonCreateController',function($scope,$state,$stateParams,Person){
 
-    $scope.movie=new Movie();
+    $scope.person=new Person();
 
-    $scope.addMovie=function(){
-        $scope.movie.$save(function(){
-            $state.go('movies');
+    $scope.addPerson=function(){
+        $scope.person.$save(function(){
+            $state.go('people');
         });
     }
 
-}).controller('MovieEditController',function($scope,$state,$stateParams,Movie){
+}).controller('PersonEditController',function($scope,$state,$stateParams,Person){
 
-    $scope.updateMovie=function(){
-        $scope.movie.$update(function(){
-            $state.go('movies');
+    $scope.updatePerson=function(){
+        $scope.person.$update(function(){
+            $state.go('people');
         });
     };
 
-    $scope.loadMovie=function(){
-        $scope.movie=Movie.get({id:$stateParams.id});
+    $scope.loadPerson=function(){
+        $scope.person=Person.get({id:$stateParams.id});
     };
 
-    $scope.loadMovie();
+    $scope.loadPerson();
 });
